@@ -43,15 +43,12 @@ userRouter.route('/')
 })
 
 .post(async (req, res, next) => {
-    // const nextSeq = await client.db("heliverse").collection("users").findOneAndUpdate(
-    //     { id: "userId" }, {$inc: {seqId : 1}}
-    // );
+    const nextSeq = await client.db("heliverse").collection("users").findOneAndUpdate(
+        { id: "userId" }, {$inc: {seqId : 1}}
+    );
     let user = req.body;
-    console.log(req.body);
-    // console.log(req.query);
-    // console.log(nextSeq.seqId);
-    // user.id = nextSeq.seqId;
-    // await client.db("heliverse").collection("users").insertOne(user);
+    user.id = nextSeq.seqId;
+    await client.db("heliverse").collection("users").insertOne(user);
     res.send("1 user added");
 });
 
