@@ -48,7 +48,7 @@ userRouter.route('/')
     // );
     let user = req.body;
     console.log(req.body);
-    console.log(req.query);
+    // console.log(req.query);
     // console.log(nextSeq.seqId);
     // user.id = nextSeq.seqId;
     // await client.db("heliverse").collection("users").insertOne(user);
